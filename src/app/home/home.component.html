@@ -1,0 +1,11 @@
+<h2>Hello {{ten}} go to home</h2>
+<br/>
+<div >Ban {{ten}} tuoi la: {{tuoi}}</div>
+<br/><br/>
+<span *ngIf="tuoi>=18 then condition1;else condition2;"></span>
+<ng-template #condition1>Ban da qua gia roi....</ng-template>
+<ng-template #condition2>Ban chua du tuoi....</ng-template>
+<br/>
+<button (click)="tangTuoi()">+</button>
+<!-- <button (click)="giamTuoi()">-</button> -->
+

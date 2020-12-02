@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -91,6 +93,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -124,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "my-app"
+  "defaultProject": "my-app",
+  "cli": {
+    "analytics": "1e3d1466-8fc1-4110-8da3-168763e343c6"
+  }
 }
