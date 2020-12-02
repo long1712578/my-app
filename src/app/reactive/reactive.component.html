@@ -1,0 +1,47 @@
+<h2>Sign up</h2>
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="myForm" class="row justify-content-md-center">
+    <div class="col-md-8">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Name:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-text-input" formControlName="name">
+                <span *ngIf="myForm.controls.name.value===''">* Ban can nhap name....</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">
+                Password:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-password-input" formControlName="password">
+                <span *ngIf="myForm.controls.password.value===''">* Ban can nhap password....</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">
+                Email:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-email-input" formControlName="email">
+                <span *ngIf="myForm.controls.email.value===''">* Ban can nhap email....</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-tel-input" class="col-2 col-form-label">
+                Tel:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="tel" id="example-tel-input" formControlName="tel">
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-10 offset-2">
+                <button class="btn btn-success" type="submit" disabled="!myForm.valid">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
