@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from '../demo.service';
+import { HttpGetServicesService } from '../http-get-services.service';
 
 @Component({
   selector: 'app-about',
@@ -7,13 +8,14 @@ import { DemoService } from '../demo.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  ten="long";
+  ten;
   tuoi;
 
 
 
-  constructor(private demo:DemoService) { 
+  constructor(private demo:DemoService,private profile:HttpGetServicesService) { 
     this.tuoi=demo.tuoi;
+   
   }
   public tangTuoi(){
     this.tuoi=this.demo.tuoi++;
@@ -26,6 +28,9 @@ export class AboutComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.profile.getProfile().subscribe(data=>{
+      this.ten=data.name;
+    })
   }
 
 }
