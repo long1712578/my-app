@@ -16,7 +16,7 @@ import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent, HelloComponent, ProgressComponent, FlexComponent, HeaderMenuComponent, HomeComponent, AboutComponent, ErrorComponent, FormComponent, ReactiveComponent,
@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule, FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule, ReactiveFormsModule
+    BrowserAnimationsModule, ReactiveFormsModule,HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
