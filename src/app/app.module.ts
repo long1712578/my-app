@@ -17,7 +17,6 @@ import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { MatSliderModule } from '@angular/material/slider';
 import { StudentComponent } from './student/student.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -31,9 +30,6 @@ import { StudentCreateComponent } from './student-create/student-create.componen
 import { StudentUpdateComponent } from './student-update/student-update.component';
 
 
-=======
-import { HttpClientModule } from '@angular/common/http';
->>>>>>> 98c9f4ccf49aecd57a809aaa88a2de52dc174eac
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +50,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-<<<<<<< HEAD
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatSliderModule,
@@ -65,10 +60,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    HttpClientModule
-=======
-    BrowserAnimationsModule, ReactiveFormsModule,HttpClientModule,
->>>>>>> 98c9f4ccf49aecd57a809aaa88a2de52dc174eac
+    HttpClientModule, 
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

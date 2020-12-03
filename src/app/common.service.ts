@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class CommonService {
   public tuoi=20;
   public ten="pham dinh long"
+  public studentUpdate:any;
 
   constructor() { 
     

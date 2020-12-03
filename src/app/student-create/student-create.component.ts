@@ -27,7 +27,7 @@ export class StudentCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
-    console.log("gender:", this.myStudentForm.value);
+    //console.log("gender:", this.myStudentForm.value);
     this.student.addStudent(this.myStudentForm.value).subscribe(data => {
       console.log("data: ", data);
     })
