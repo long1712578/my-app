@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -6,30 +7,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- currentProgress=70;
- currentProgressColor='dodgerblue';
+  currentProgress = 70;
+  currentProgressColor = 'dodgerblue';
   name = 'chao buoi sang';
-  show=false;
-  users=[
+  show = false;
+  isOpened = true;
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  users = [
     {
-      name:'long',
+      name: 'long',
       age: 21,
     },
     {
-      name:'lan',
+      name: 'lan',
       age: 20,
     },
     {
-      name:'loc',
+      name: 'loc',
       age: 23,
     },
     {
-      name:'huy',
+      name: 'huy',
       age: 22,
     }
   ]
 
-  handle(){
+  handle() {
     console.log('hello world!!!');
+  }
+  public openLeftSide() {
+    this.isOpened = !this.isOpened;
+    this.sidenav.toggle();
+  }
+
+  public closeLeftSide() {
+    this.isOpened = false;
   }
 }

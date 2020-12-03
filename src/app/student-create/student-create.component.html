@@ -1,0 +1,95 @@
+<h2>Thêm mới nhân viên</h2>
+<form novalidate (ngSubmit)="onSubmit()" [formGroup]="myStudentForm" class="row justify-content-md-center">
+    <div class="col-md-8">
+        <div class="form-group row">
+            <label for="example-id-input" class="col-2 col-form-label">
+                Nhập id:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-id-input" formControlName="id">
+                <!-- <span *ngIf="myStudentForm.controls.id.value===''">* Chưa nhập id nhân viên....</span> -->
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">
+                Mã nhân viên:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-text-input" formControlName="code">
+                <span *ngIf="myStudentForm.controls.code.value===''">* Chưa nhập mã nhân viên....</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-gender-input" class="col-2 col-form-label">
+                Giới tính:
+            </label>
+            <div class="col-10">
+                <select (change)="changeGender($event)" formControlName="gender">
+                    <option value="">Chọn giới tính</option>
+                    <option *ngFor="let kind of kinds" [value]="kind">{{ kind }}</option>
+                </select>
+                <span *ngIf="myStudentForm.controls.gender.value===''">* Ban can chon gioi tinh....</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">
+                Họ:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-firstName-input" formControlName="firstName">
+                <span *ngIf="myStudentForm.controls.firstName.value===''">* Ban can nhap Ho....</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="example-tel-input" class="col-2 col-form-label">
+                Tên:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="tel" id="example-lastName-input" formControlName="lastName">
+                <span *ngIf="myStudentForm.controls.lastName.value===''">* Ban can nhap Ten....</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-dob-input" class="col-2 col-form-label">
+                Ngày sinh:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="tel" id="example-dob-input" formControlName="dob">
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">
+                Email:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="tel" id="example-email-input" formControlName="mail">
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-phone-input" class="col-2 col-form-label">
+                Điện thoại:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="phone" id="example-phone-input" formControlName="phone">
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-avatar-input" class="col-2 col-form-label">
+                Avatar:
+            </label>
+            <div class="col-10">
+                <input class="form-control" type="text" id="example-avatar-input" formControlName="picture">
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-10 offset-2">
+                <button class="btn btn-success" type="submit" (click)="backHome()">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>

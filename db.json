@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "students": [
+    {
+      "id": 1,
+      "code": "10",
+      "gender": "nam",
+      "firstName": "long",
+      "lastName": "pham",
+      "dob": "12/12/1999",
+      "mail": "long@gmail.com",
+      "phone": "0123456",
+      "picture": "hinh1.jpg"
+    },
+    {
+      "id": 2,
+      "code": "11",
+      "gender": "nam",
+      "firstName": "lan",
+      "lastName": "bui",
+      "dob": "12/12/1999",
+      "mail": "lan@gmail.com",
+      "phone": "0123456",
+      "picture": "hinh2.jpg"
+    },
+    {
+      "id": 3,
+      "code": "12",
+      "gender": "nam",
+      "firstName": "huy",
+      "lastName": "nguyen",
+      "dob": "12/12/1999",
+      "mail": "huy@gmail.com",
+      "phone": "0123456",
+      "picture": "hinh3.jpg"
+    }
+  ]
+}
