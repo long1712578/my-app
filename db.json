@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "posts": [
     {
       "id": 1,
@@ -53,13 +52,3 @@
     }
   ]
 }
-=======
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "long" }
-  }
->>>>>>> 98c9f4ccf49aecd57a809aaa88a2de52dc174eac
