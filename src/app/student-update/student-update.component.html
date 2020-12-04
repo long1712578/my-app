@@ -1,5 +1,5 @@
 <h2>Thêm mới nhân viên</h2>
-<form novalidate (ngSubmit)="onSubmit()"  [formGroup]="myStudentForm" class="row justify-content-md-center">
+<form novalidate (ngSubmit)="onSubmit()"  [formGroup]="myStudentUpdateForm" class="row justify-content-md-center">
     <div class="col-md-8">
         <div class="form-group row">
             <label for="example-id-input" class="col-2 col-form-label">
@@ -16,7 +16,7 @@
             </label>
             <div class="col-10">
                 <input class="form-control" type="text" id="example-text-input" formControlName="code">
-                <span *ngIf="myStudentForm.controls.code.value===''">* Chưa nhập mã nhân viên....</span>
+                <span *ngIf="myStudentUpdateForm.controls.code.value===''">* Chưa nhập mã nhân viên....</span>
             </div>
         </div>
         <div class="form-group row">
@@ -28,7 +28,7 @@
                     <option value="">Chọn giới tính</option>
                     <option *ngFor="let kind of kinds" [value]="kind">{{ kind }}</option>
                 </select>
-                <span *ngIf="myStudentForm.controls.gender.value===''">* Ban can chon gioi tinh....</span>
+                <span *ngIf="myStudentUpdateForm.controls.gender.value===''">* Ban can chon gioi tinh....</span>
             </div>
         </div>
         <div class="form-group row">
@@ -37,7 +37,7 @@
             </label>
             <div class="col-10">
                 <input class="form-control" type="text" id="example-firstName-input" formControlName="firstName">
-                <span *ngIf="myStudentForm.controls.firstName.value===''">* Ban can nhap Ho....</span>
+                <span *ngIf="myStudentUpdateForm.controls.firstName.value===''">* Ban can nhap Ho....</span>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
             </label>
             <div class="col-10">
                 <input class="form-control" type="tel" id="example-lastName-input" formControlName="lastName">
-                <span *ngIf="myStudentForm.controls.lastName.value===''">* Ban can nhap Ten....</span>
+                <span *ngIf="myStudentUpdateForm.controls.lastName.value===''">* Ban can nhap Ten....</span>
             </div>
         </div>
         <div class="form-group row">

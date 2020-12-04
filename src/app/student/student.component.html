@@ -3,6 +3,19 @@
         <mat-icon>add_box</mat-icon>
         Thêm sinh viên
     </button>
+    <!-- Search form -->
+<form class="form-inline waves-light" mdbWavesEffect>
+    <div class="md-form mt-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="keyword">
+      <button mat-raised-button color="primary"(click)="searchStudent()">
+        <mat-icon>search</mat-icon>
+    </button>
+    </div>
+  </form>
+    <!-- <button mat-raised-button color="primary" (click)="addStudent()">
+        <mat-icon>add_box</mat-icon>
+        Thêm sinh viên
+    </button> -->
     <table id="customers" style="border-collapse: collapse;">
         <tr>
             <th>Hành động</th>

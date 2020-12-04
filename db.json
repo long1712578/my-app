@@ -49,6 +49,17 @@
       "mail": "huy@gmail.com",
       "phone": "0123456",
       "picture": "hinh3.jpg"
+    },
+    {
+      "id": "4",
+      "code": "13",
+      "gender": "nu",
+      "firstName": "phan",
+      "lastName": "thao",
+      "dob": "9/9/1999",
+      "mail": "thao@gmail.com",
+      "phone": "0123456789",
+      "picture": "hinh2.jpg"
     }
   ]
 }

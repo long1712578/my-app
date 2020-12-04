@@ -15,7 +15,7 @@ export class StudentUpdateComponent implements OnInit {
   student:student;
   idstudent;
   
-  myStudentForm = new FormGroup({
+  myStudentUpdateForm = new FormGroup({
     id: new FormControl(''),
     code: new FormControl(''),
     gender: new FormControl(''),
@@ -33,15 +33,15 @@ export class StudentUpdateComponent implements OnInit {
   ngOnInit(): void {
     //console.log("updatenew",this.studentNew.studentUpdate);
     this.student=this.studentNew.studentUpdate;
-    for(const controlName in this.myStudentForm.controls){
+    for(const controlName in this.myStudentUpdateForm.controls){
       if(controlName){
-        this.myStudentForm.controls[controlName].setValue(this.student[controlName]);
+        this.myStudentUpdateForm.controls[controlName].setValue(this.student[controlName]);
       }
     }
   }
   backHome() {
-    console.log(this.myStudentForm.value);
-    this.studentAfter.updataStudent(this.myStudentForm.value,this.myStudentForm.controls.id.value).subscribe((data)=>{});
+    console.log(this.myStudentUpdateForm.value);
+    this.studentAfter.updataStudent(this.myStudentUpdateForm.value,this.myStudentUpdateForm.controls.id.value).subscribe((data)=>{});
     this.router.navigate(['students'])
   }
   changeGender(e) {

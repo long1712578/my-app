@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
 import { HttpServiceApiService } from '../http-service-api.service';
 import { student } from '../models/student';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-student',
@@ -13,6 +14,7 @@ import { student } from '../models/student';
 export class StudentComponent implements OnInit {
   students: student[] = []
   idStudent;
+  keyword='';
 
   constructor(private studentService: HttpServiceApiService, private router: Router,private studentU: CommonService) { }
 
@@ -47,13 +49,18 @@ export class StudentComponent implements OnInit {
       console.log("update",this.studentU.studentUpdate);
       this.router.navigate(['update-student']);
     })
-    //this.studentService.getStudentById(studentId);
-    // this.router.navigate(['update-student']);
-    //this.idStudent = studentId;
+
   }
 
   public sortByCode(dir) {
-
+    if(dir==='up'){
+      this.students=_.orderBy(this.students,['code'],['desc']);
+    }else{
+      this.students=_.orderBy(this.students,['code'],['asc']);
+    }
+  }
+  public searchStudent(){
+    console.log("key: ",this.keyword);
   }
 
 }
