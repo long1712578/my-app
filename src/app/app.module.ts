@@ -17,7 +17,6 @@ import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { MatSliderModule } from '@angular/material/slider';
 import { StudentComponent } from './student/student.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,12 +26,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator'
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { StudentUpdateComponent } from './student-update/student-update.component';
 
 
 
-// import { HttpClientModule } from '@angular/common/http';
+
+//import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,6 @@ import { StudentUpdateComponent } from './student-update/student-update.componen
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatSliderModule,
@@ -65,6 +65,7 @@ import { StudentUpdateComponent } from './student-update/student-update.componen
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
+    MatPaginatorModule,
     HttpClientModule
 
   ],

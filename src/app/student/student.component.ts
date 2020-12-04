@@ -1,8 +1,11 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from '../common.service';
 import { HttpServiceApiService } from '../http-service-api.service';
 import { student } from '../models/student';
+import * as _ from 'lodash';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -12,8 +15,12 @@ import { student } from '../models/student';
 export class StudentComponent implements OnInit {
   students: student[] = []
   idStudent;
+  myGroup = new FormGroup({
+    keyword: new FormControl(''),
+  });
 
-  constructor(private studentService: HttpServiceApiService, private router: Router) { }
+
+  constructor(private studentService: HttpServiceApiService, private router: Router, private studentU: CommonService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -21,7 +28,7 @@ export class StudentComponent implements OnInit {
 
   private loadData() {
     this.studentService.getstudents().subscribe((data) => {
-      console.log(data);
+      console.log("data", data);
       this.students = data;
     })
 
@@ -41,12 +48,28 @@ export class StudentComponent implements OnInit {
   }
 
   public editStudent(studentId) {
-    this.router.navigate(['update-student']);
-    this.idStudent = studentId;
+    this.studentService.getStudentById(studentId).subscribe((data) => {
+      this.studentU.studentUpdate = data;
+      console.log("update", this.studentU.studentUpdate);
+      this.router.navigate(['update-student']);
+    })
+
   }
 
   public sortByCode(dir) {
+    if (dir === 'up') {
+      this.students = _.orderBy(this.students, ['code'], ['desc']);
+    } else {
+      this.students = _.orderBy(this.students, ['code'], ['asc']);
+    }
+  }
+  public searchStudent() {
+    console.log("key: ", this.myGroup.controls.keyword.value);
+    this.studentService.searchStudent(this.myGroup.controls.keyword.value).subscribe((data) => {
+      console.log("data:", data)
+      this.students = data;
 
+    })
   }
 
 }

@@ -3,6 +3,16 @@
         <mat-icon>add_box</mat-icon>
         Thêm sinh viên
     </button>
+    <!-- Search form -->
+    <form class="form-inline waves-light" mdbWavesEffect [formGroup]="myGroup" (ngSubmit)="searchStudent()">
+        <div class="md-form mt-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm theo id" formControlName="keyword">
+            <button mat-raised-button color="primary">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </form>
+
     <table id="customers" style="border-collapse: collapse;">
         <tr>
             <th>Hành động</th>
@@ -45,4 +55,7 @@
             </td>
         </tr>
     </table>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
 </div>

@@ -31,6 +31,21 @@ export class HttpServiceApiService {
     const url = `${this.REST_API_SERVER}/students/${id}`;
     return this.httpClient.delete<any>(url, this.httpOptions);
   }
+  public getStudentById(id: number): Observable<any> {
+    const url = `${this.REST_API_SERVER}/students/${id}`;
+    return this.httpClient.get<any>(url, this.httpOptions);
+  }
+  public updataStudent(student, id): Observable<any> {
+    const url = `${this.REST_API_SERVER}/students/${id}`;
+    return this.httpClient.put<any>(url, student, this.httpOptions);
+  }
+  public searchStudent(keyword): Observable<any> {
+    const url = `${this.REST_API_SERVER}/students/?id=${keyword}`
+    return this.httpClient.get<any>(url, this.httpOptions);
+  }
+  public loadPaging(index, pageSize) {
+
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
