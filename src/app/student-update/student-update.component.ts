@@ -12,9 +12,9 @@ import { student } from '../models/student';
 })
 export class StudentUpdateComponent implements OnInit {
   kinds = ["nam", "nu"];
-  student:student;
+  student: student;
   idstudent;
-  
+
   myStudentUpdateForm = new FormGroup({
     id: new FormControl(''),
     code: new FormControl(''),
@@ -26,31 +26,31 @@ export class StudentUpdateComponent implements OnInit {
     phone: new FormControl(''),
     picture: new FormControl(''),
   });
-  constructor(private studentNew: CommonService,private router:Router,private studentAfter:HttpServiceApiService) { 
-    
+  constructor(private studentNew: CommonService, private router: Router, private studentAfter: HttpServiceApiService) {
+
   }
 
   ngOnInit(): void {
     //console.log("updatenew",this.studentNew.studentUpdate);
-    this.student=this.studentNew.studentUpdate;
-    for(const controlName in this.myStudentUpdateForm.controls){
-      if(controlName){
+    this.student = this.studentNew.studentUpdate;
+    for (const controlName in this.myStudentUpdateForm.controls) {
+      if (controlName) {
         this.myStudentUpdateForm.controls[controlName].setValue(this.student[controlName]);
       }
     }
   }
   backHome() {
-    console.log(this.myStudentUpdateForm.value);
-    this.studentAfter.updataStudent(this.myStudentUpdateForm.value,this.myStudentUpdateForm.controls.id.value).subscribe((data)=>{});
+    //console.log(this.myStudentUpdateForm.value);
+    //this.studentAfter.updataStudent(this.myStudentUpdateForm.value,this.myStudentUpdateForm.controls.id.value).subscribe((data)=>{});
     this.router.navigate(['students'])
   }
   changeGender(e) {
     console.log(e.target.value);
-    
+
   }
   onSubmit() {
-    //this.idstudent=this.myStudentForm.controls.id.value;
-    console.log("hello 123");
-    //this.studentAfter.updataStudent(this.myStudentForm.value,1)
+    this.idstudent = this.myStudentUpdateForm.controls.id.value;
+
+    this.studentAfter.updataStudent(this.myStudentUpdateForm.value, this.idstudent).subscribe(data => { });
   }
 }

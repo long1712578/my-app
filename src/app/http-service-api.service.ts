@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,37 +15,47 @@ export class HttpServiceApiService {
 
     }),
   };
-  private REST_API_SERVER = 'http://localhost:3000';
+  private REST_API_SERVER = environment.basicURL;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+
+  }
 
   public getstudents(): Observable<any> {
-    const url = `${this.REST_API_SERVER}/students`;
+    const url = `${this.REST_API_SERVER}/student`;
     return this.httpClient.get<any>(url, this.httpOptions)
-      .pipe(catchError(this.handleError));
+      .pipe(map(res => {
+        return res;
+      }));
+
   };
-  public addStudent(data): Observable<any> {
-    const url = `${this.REST_API_SERVER}/students`;
-    return this.httpClient.post<any>(url, data, this.httpOptions);
+  public addStudent(data: any): Observable<any> {
+
+    const url = `${this.REST_API_SERVER}/student`;
+    return this.httpClient.post<any>(url, data ? data : {});
+
   }
   public deleteStudent(id: any): Observable<any> {
-    const url = `${this.REST_API_SERVER}/students/${id}`;
+    const url = `${this.REST_API_SERVER}/student/${id}`;
     return this.httpClient.delete<any>(url, this.httpOptions);
   }
   public getStudentById(id: number): Observable<any> {
-    const url = `${this.REST_API_SERVER}/students/${id}`;
+    const url = `${this.REST_API_SERVER}/student/${id}`;
     return this.httpClient.get<any>(url, this.httpOptions);
   }
   public updataStudent(student, id): Observable<any> {
-    const url = `${this.REST_API_SERVER}/students/${id}`;
+    const url = `${this.REST_API_SERVER}/student/${id}`;
     return this.httpClient.put<any>(url, student, this.httpOptions);
   }
   public searchStudent(keyword): Observable<any> {
-    const url = `${this.REST_API_SERVER}/students/?id=${keyword}`
+    const url = `${this.REST_API_SERVER}/student/?id=${keyword}`
     return this.httpClient.get<any>(url, this.httpOptions);
   }
   public loadPaging(index, pageSize) {
-
+    const url = `${this.REST_API_SERVER}/student/Paging?index=${index}&sizePage=${pageSize}`;
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(map(res => {
+      return res;
+    }));
   }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -59,4 +70,4 @@ export class HttpServiceApiService {
       return of(result as T);
     };
   };
-}
+};

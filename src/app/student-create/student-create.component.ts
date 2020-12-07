@@ -11,7 +11,7 @@ import { HttpServiceApiService } from '../http-service-api.service';
 export class StudentCreateComponent implements OnInit {
 
   myStudentForm = new FormGroup({
-    id: new FormControl(''),
+
     code: new FormControl(''),
     gender: new FormControl(''),
     firstName: new FormControl(''),
@@ -27,13 +27,11 @@ export class StudentCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
-    //console.log("gender:", this.myStudentForm.value);
     this.student.addStudent(this.myStudentForm.value).subscribe(data => {
-      console.log("data: ", data);
+
     })
   }
   changeGender(e) {
-    console.log(e.target.value);
     this.myStudentForm.controls.gender.setValue(e.target.value, {
       onlySelf: true
     })

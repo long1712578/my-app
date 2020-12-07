@@ -23,15 +23,21 @@ export class StudentComponent implements OnInit {
   constructor(private studentService: HttpServiceApiService, private router: Router, private studentU: CommonService) { }
 
   ngOnInit(): void {
+    //this.loadPaging(1, 5);
     this.loadData();
   }
 
   private loadData() {
     this.studentService.getstudents().subscribe((data) => {
-      console.log("data", data);
       this.students = data;
     })
 
+  }
+
+  public loadPaging(index, size) {
+    this.studentService.loadPaging(index, size).subscribe((data) => {
+      this.students = data;
+    })
   }
 
   public addStudent() {
@@ -50,7 +56,6 @@ export class StudentComponent implements OnInit {
   public editStudent(studentId) {
     this.studentService.getStudentById(studentId).subscribe((data) => {
       this.studentU.studentUpdate = data;
-      console.log("update", this.studentU.studentUpdate);
       this.router.navigate(['update-student']);
     })
 
@@ -68,7 +73,7 @@ export class StudentComponent implements OnInit {
     this.studentService.searchStudent(this.myGroup.controls.keyword.value).subscribe((data) => {
       console.log("data:", data)
       this.students = data;
-
+      //this.loadData();
     })
   }
 
